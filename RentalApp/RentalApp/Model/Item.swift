@@ -7,7 +7,7 @@
 
 import Foundation
 
-//Model from MVC
+//Model from MVC which handles the item data
 
 class Item : Codable {
     var id : Int64!

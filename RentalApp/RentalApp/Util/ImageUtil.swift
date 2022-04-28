@@ -5,7 +5,7 @@ import UIKit
 // Tutorial source: https://www.advancedswift.com/resize-uiimage-no-stretching-swift/
 class ImageUtil {
     
-    func resizedImage(image: UIImage, scale: Double) -> UIImage? {
+    func resizedImage(image: UIImage, scale: Double) -> UIImage? { //Downsizes the images so large images arent uploaded to S3.
 
         var size = image.size
         size.height *= scale

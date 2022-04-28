@@ -6,7 +6,7 @@ typealias completionBlock = (_ response: Any?, _ error: Error?) -> Void
 
 //Tutorial source: https://www.swiftdevcenter.com/upload-image-video-audio-and-any-type-of-files-to-aws-s3-bucket-swift/
 
-class AWSS3Manager {
+class AWSS3Manager { //Handles the uploading of images to the S3 bucket.
     static let shared = AWSS3Manager()
     private init () { }
     let bucketName = "superimagesbucket"

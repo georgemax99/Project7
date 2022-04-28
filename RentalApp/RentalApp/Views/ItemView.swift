@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+//View for the individual item views, handles the frontend
+
 class ItemView : UIView {
     var backButton : UIButton!
     var imageView : UIImageView!

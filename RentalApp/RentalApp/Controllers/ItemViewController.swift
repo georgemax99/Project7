@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//Controller that handles logic for the Individual item views such as renting the item.
 class ItemViewController : UIViewController {
     var itemView : ItemView!
     var rentView : RentView!
@@ -21,11 +22,11 @@ class ItemViewController : UIViewController {
     }
     
     func initUI() {
-        itemView = ItemView(item: item)
+        itemView = ItemView(item: item) //Init ItemView
         itemView.backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         itemView.rentButton.addTarget(self, action: #selector(goToRentView), for: .touchUpInside)
         view.addSubview(itemView)
-        itemView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        itemView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true //Used Auto Layout constraints for the sizing and placement of views.
         itemView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         itemView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         itemView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -58,7 +59,7 @@ class ItemViewController : UIViewController {
             "buyerId" : String(user.id)
         ]
         
-        ApiRequest.getInstance().sendPost(url: "rent-item", parameters: params, finished: {(result) -> Void in
+        ApiRequest.getInstance().sendPost(url: "rent-item", parameters: params, finished: {(result) -> Void in //Using the ApiRequest singleton to send a post request to the "/rent-item" api endpoint
             if result.contains("@") {
                 let alert = UIAlertController(title: "Success!", message: "You successfully rented this item!\nPlease coordinate with " + result + " on picking up and dropping off the item.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {_ in

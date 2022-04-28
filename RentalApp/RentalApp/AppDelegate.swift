@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             vc.user = User().getUser(jsonData: userData)
             UIApplication.shared.windows.first?.rootViewController = vc
             
-        } else {
+        } else { //Not logged in so we need to use the title controller
             UIApplication.shared.windows.first?.rootViewController = ViewController()
         }
         UIApplication.shared.windows.first?.makeKeyAndVisible()

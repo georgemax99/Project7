@@ -9,7 +9,7 @@ import Foundation
 
 //Tutorial source: https://stackoverflow.com/questions/26364914/http-request-in-swift-with-post-method
 
-class ApiRequest {
+class ApiRequest { //Singleton class that is statically called to get an instance and use its methods to either send a get or post request.
     
     let endPoint = "http://rentalapp-env.eba-kxcmjxj4.us-east-1.elasticbeanstalk.com/"
     
