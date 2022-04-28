@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Locale;
 
 @WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet { //Facade the logic for logging in users was abstracted away from the client
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email").toLowerCase(Locale.ROOT);
         String password = req.getParameter("password");

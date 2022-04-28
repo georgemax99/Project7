@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/get-items")
-public class GetItemsServlet extends HttpServlet {
+public class GetItemsServlet extends HttpServlet {//Facade - the logic for getting items from the database was abstracted away from the client.
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ItemSQL itemSQL = new ItemSQL();
         List<Item> itemList = itemSQL.readAll();

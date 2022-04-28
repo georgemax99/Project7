@@ -1,0 +1,18 @@
+Team members: Max Young, Kyle Smart, Kelvin Yang
+Code By: Max Young
+
+Java 7, openjdk-16
+Swift 5, Xcode 13.2.1
+
+The Java WebServer was running on a AWS Elastic Beanstalk Tomcat Environment. A .war file was deployed to this environment.
+The database was a MySQL database hosted using AWS RDS.
+
+Design Patterns:
+
+Singleton - The ApiRequest Swift class was using the singleton pattern so it did not need to be reinstantiated everytime a api call was made.
+
+MVC - Model View Controller was used on the client side (iOS app).
+
+Facade - The server was abstracted from the client so that only information that the client needed was available. The logic was abstracted away.
+
+Observer - There was a publisher subscriber relationship with the client being the publisher and the webserver being the subscriber. The client would push updates to the webserver.

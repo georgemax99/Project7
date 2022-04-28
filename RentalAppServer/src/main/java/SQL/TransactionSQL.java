@@ -6,7 +6,7 @@ import Util.SQLUtil;
 
 import java.sql.*;
 
-public class TransactionSQL {
+public class TransactionSQL {//I got this code structure from an internship a few years ago with Spinneret. https://www.spinneret.com/. I was given permission to use this in any future projects.
     public Long create(Transaction transaction) {
         Long id = -1L;
         Connection conn = SQLUtil.getConnection();

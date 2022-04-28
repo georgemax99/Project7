@@ -78,4 +78,27 @@ public class UserSQL {
         }
         return user;
     }
+
+    public User readById(Long userId) {
+        User user = null;
+        Connection conn = SQLUtil.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            String sql = "select * from users where id = ? ";
+            stmt = conn.prepareStatement(sql);
+            stmt.setLong(1, userId);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                BeanProcessor bp = new BeanProcessor();
+                user = bp.toBean(rs, User.class);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Database failed to query.");
+        } finally {
+            SQLUtil.close(conn, stmt, rs);
+        }
+        return user;
+    }
 }

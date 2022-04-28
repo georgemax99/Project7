@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/create-item")
-public class CreateItemServlet extends HttpServlet {
+public class CreateItemServlet extends HttpServlet {//Facade the logic for creating new items was abstracted away from the client.
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long userId = Long.parseLong(req.getParameter("userId"));
         String title = req.getParameter("title");

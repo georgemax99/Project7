@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Locale;
 
 @WebServlet("/signup")
-public class SignupServlet extends HttpServlet {
+public class SignupServlet extends HttpServlet {//Facade the logic for signing up was abstracted away from the client.
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email").toLowerCase(Locale.ROOT);

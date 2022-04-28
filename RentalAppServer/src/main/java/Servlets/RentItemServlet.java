@@ -2,8 +2,10 @@ package Servlets;
 
 import Beans.Item;
 import Beans.Transaction;
+import Beans.User;
 import SQL.ItemSQL;
 import SQL.TransactionSQL;
+import SQL.UserSQL;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/rent-item")
-public class RentItemServlet extends HttpServlet {
+public class RentItemServlet extends HttpServlet {//Facade the logic for renting items was abstracted away from the client.
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long itemId = Long.parseLong(req.getParameter("itemId"));
         Long buyerId = Long.parseLong(req.getParameter("buyerId"));
@@ -37,7 +39,10 @@ public class RentItemServlet extends HttpServlet {
                 transaction.setDropOffTime(dropOffTime);
                 transactionSQL.create(transaction);
 
-                resp.getWriter().print("Success");
+                UserSQL userSQL = new UserSQL();
+                User user = userSQL.readById(item.getUserId());
+
+                resp.getWriter().print(user.getEmail());
 
             } else {
                 resp.getWriter().print("Someone is already renting this item.");

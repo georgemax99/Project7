@@ -2,7 +2,7 @@ package Util;
 
 import java.sql.*;
 
-public class SQLUtil {
+public class SQLUtil { //I got this code from an internship a few years ago with Spinneret. https://www.spinneret.com/. I was given permission to use this in any future projects.
 
 	public static final String DEV_HOST = "database-3.cwv3n8ialhs8.us-east-1.rds.amazonaws.com";
 	public static final String DEV_DATABASE = "rentalApp";
